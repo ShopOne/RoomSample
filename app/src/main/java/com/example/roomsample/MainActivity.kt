@@ -68,8 +68,8 @@ class MainActivity : AppCompatActivity() {
     }
     private fun addHumanFunction(){
         AsyncTask.execute{
-            val name = nameInput.text.toString()
-            val age = ageInput.text.toString().toIntOrNull() ?: -1
+            val name = addNameInput.text.toString()
+            val age = addAgeInput.text.toString().toIntOrNull() ?: -1
             if(name != "" && age >= 0){
                 dao.insertHuman(HumanEntity(id = 0,name = name,age = age))
             }
@@ -77,7 +77,7 @@ class MainActivity : AppCompatActivity() {
     }
     private fun removeHumanFunction(){
         AsyncTask.execute{
-            val name = nameInput.text.toString()
+            val name = removeNameInput.text.toString()
             val humanList = dao.searchName(name)
             for(human in humanList){
                 dao.deleteAllHuman(human)
